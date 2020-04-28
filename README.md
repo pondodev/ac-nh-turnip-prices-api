@@ -10,4 +10,4 @@ this is a small api that aims to complement my fork of of the repo [mikebryant/a
 
 ## usage
 
-run `pip install -r requirements.txt` to install any required packages and then just run the main script with `python main.py`. note that while this is still in testing stages i'll have it in debug mode. if you plan on deploying this, please take it out of debug mode.
+run `pip install -r requirements.txt` to install any required packages and then just run the main script with `python main.py`. for documentation on api usage please refer to the [api reference](APIReference.md) note that while this is still in testing stages i'll have it in debug mode. if you plan on deploying this, please take it out of debug mode.

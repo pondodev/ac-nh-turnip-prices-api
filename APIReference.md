@@ -6,7 +6,7 @@
 
 ```json
 {
-  username : "string"
+  "username" : "string"
 }
 ```
 
@@ -36,7 +36,7 @@ returns user with given id
 
 ```json
 {
-    username: "string"
+    "username": "string"
 }
 ```
 
@@ -60,12 +60,12 @@ returns array of patterns owned by the user
 
 ```json
 {
-    userId  : 1,
-    pattern : {
-        startDate : 1587945600,
-        prices    : "100.121.113..........",
-        first     : False,
-        pattern   : 0
+    "userId"  : 1,
+    "pattern" : {
+        "startDate" : 1587945600,
+        "prices"    : "100.121.113..........",
+        "first"     : false,
+        "pattern"   : 0
     }
 }
 ```
