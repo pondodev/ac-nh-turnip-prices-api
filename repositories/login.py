@@ -10,6 +10,6 @@ class Login(Resource):
         # TODO: check if user exists in db, if they do log in if not reject login
         # we'll just pretend that only i can get in for now
         if username == "pondo":
-            return Response(status=200)
+            return Response("{ 'message' : 'User authenticated' }", status=200, mimetype="application/json")
         else:
-            return Response(status=404)
+            return Response("{ 'message' : 'Failed to authenticate user' }", status=401, mimetype="application/json")
