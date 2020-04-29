@@ -24,7 +24,7 @@ returns an array in json format of all users.
 
 ### parameters
 
-- id: string -- the user's id
+- userId: string -- the user's id
 
 ### description
 

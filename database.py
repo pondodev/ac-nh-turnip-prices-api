@@ -28,8 +28,8 @@ def Init():
         print("table already exists")
 
     # create patterns table if it doesn't exist
-    # userId: int (compound primary key) -- uuid for user who owns this pattern
-    # weekStart: int (compound primary key) -- unix timestamp of week start
+    # userId: int (composite primary key) -- uuid for user who owns this pattern
+    # weekStart: int (composite primary key) -- unix timestamp of week start
     # prices: string -- serialised data for a week's prices
     # first: boolean -- is this the user's first week doing turnips?
     # pattern: int -- the pattern which the user had last week
