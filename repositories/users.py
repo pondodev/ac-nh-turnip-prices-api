@@ -28,8 +28,9 @@ class User(Resource):
     def get(self):
         try:
             userId = int(request.args.get("userId"))
-            query = "SELECT * FROM users WHERE userId = " + str(userId)
-            res = db.Execute(query)
+            query = "SELECT * FROM users WHERE userId = ?"
+            params = [userId]
+            res = db.Execute(query, params)
             if len(res) == 0:
                 return Response(status=404)
             else:
@@ -45,20 +46,34 @@ class User(Resource):
     # for now we will only accept usernames, passwords can come later
     # if this becomes a bigger thing
     def post(self):
+        # check username is unique
+        # this would normally not be needed, but since users authenticate with
+        # their username we need to ensure that they're unique
+        username = request.json["username"]
+        query = "SELECT * FROM users WHERE username = ?"
+        params = [username]
+        res = db.Execute(query, params)
+        if len(res) > 0:
+            response = {
+                "message": "Username already taken"
+            }
+            return Response(json.dumps(response), status=409, mimetype="application/json")
+
         # get randomly generated user id
         userId = -1
         # loop until id is unique
         while userId == -1:
             userId = secrets.randbelow(9999999)
-            query = "SELECT * FROM users WHERE userId = " + str(userId)
-            res = db.Execute(query)
+            query = "SELECT * FROM users WHERE userId = ?"
+            params = [userId]
+            res = db.Execute(query, params)
             if len(res) > 0:
                 userId = -1
 
-        username = request.json["username"]
         try:
-            query = "INSERT INTO users (userId, username) VALUES (" + str(userId) + ", '" + username + "')"
-            res = db.Execute(query, True)
+            query = "INSERT INTO users (userId, username) VALUES (?, ?)"
+            params = [userId, username]
+            res = db.Execute(query, params, True)
             if res is None:
                 return Response(status=500)
             else:

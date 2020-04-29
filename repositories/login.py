@@ -10,8 +10,9 @@ class Login(Resource):
     def post(self):
         try:
             username = request.json["username"]
-            query = "SELECT * FROM users WHERE username = '" + username + "'"
-            res = db.Execute(query)
+            query = "SELECT * FROM users WHERE username = ?"
+            params = [username]
+            res = db.Execute(query, params)
             if len(res) > 0:
                 response = {
                     "message": "User authenticated",

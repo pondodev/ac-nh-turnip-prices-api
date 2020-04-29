@@ -54,16 +54,21 @@ def Init():
     return
 
 # execute query on the database
-def Execute(query, commit=False):
+def Execute(query, params=None, commit=False):
     try:
         conn = sqlite3.connect(dbName)
         cursor = conn.cursor()
     except:
-        print("unable to open database")
         return None
 
-    cursor.execute(query)
-    res = cursor.fetchall()
+    try:
+        if params is None:
+            cursor.execute(query)
+        else:
+            cursor.execute(query, params)
+        res = cursor.fetchall()
+    except:
+        return None
 
     # we only really need to commit if we add/alter records
     if commit:
