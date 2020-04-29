@@ -2,13 +2,6 @@ from flask import request, Response
 from flask_restful import Resource
 import json
 
-# "weeks": {
-#     "startDate": "idk figure out some date later",
-#     "prices": "100.121.113..........",
-#     "first": False,
-#     "pattern": 0
-# }
-
 class UserPatterns(Resource):
     # returns array of patterns owned by a user
     def get(self):

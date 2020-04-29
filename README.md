@@ -6,7 +6,7 @@ this is a small api that aims to complement my fork of of the repo [mikebryant/a
 - python 3 (i use 3.7.1 cause it's what i have installed lmao)
   - flask
   - flask restful
-- some sorta db in the future (i'm thinking mariadb since that's what i know but idk)
+- sqlite3 (should come with python 3)
 
 ## usage
 

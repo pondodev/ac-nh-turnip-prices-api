@@ -1,5 +1,6 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
+import database as db
 
 # import repositories
 from repositories.login import Login
@@ -17,4 +18,5 @@ api.add_resource(UserPatterns, "/api/UserPatterns")
 api.add_resource(SubmitPattern, "/api/SubmitPattern")
 
 if __name__ == "__main__":
+    db.Init()
     app.run(debug=True)
