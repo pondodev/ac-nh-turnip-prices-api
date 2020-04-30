@@ -15,11 +15,8 @@ class Login(Resource):
             res = db.Execute(query, params)
             if len(res) > 0:
                 response = {
-                    "message": "User authenticated",
-                    "userData": {
-                        "userId": res[0][0],
-                        "username": res[0][1]
-                    }
+                    "userId": res[0][0],
+                    "username": res[0][1]
                 }
                 return Response(json.dumps(response), status=200, mimetype="application/json")
             else:

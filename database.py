@@ -29,7 +29,7 @@ def Init():
 
     # create patterns table if it doesn't exist
     # userId: int (composite primary key) -- uuid for user who owns this pattern
-    # weekStart: int (composite primary key) -- unix timestamp of week start
+    # startDate: int (composite primary key) -- unix timestamp of week start
     # prices: string -- serialised data for a week's prices
     # first: boolean -- is this the user's first week doing turnips?
     # pattern: int -- the pattern which the user had last week
@@ -38,11 +38,11 @@ def Init():
         cursor.execute("""
             CREATE TABLE patterns (
                 userId    INTEGER NOT NULL,
-                weekStart INTEGER NOT NULL,
+                startDate INTEGER NOT NULL,
                 prices    TEXT    NOT NULL,
                 first     INTEGER NOT NULL,
                 pattern   INTEGER NOT NULL,
-                PRIMARY KEY(userId, weekStart)
+                PRIMARY KEY(userId, startDate)
             )
         """)
         conn.commit()
