@@ -7,8 +7,13 @@ from repositories.login import Login
 from repositories.users import AllUsers, User
 from repositories.patterns import UserPatterns, SubmitPattern
 
-app = Flask(__name__, static_url_path="/site", static_folder="./site")
+app = Flask(__name__, static_url_path="", static_folder="./site")
 api = Api(app)
+
+# rewrite path for index.html
+@app.route("/")
+def root():
+    return app.send_static_file("index.html")
 
 # define api paths
 api.add_resource(Login, "/api/Login")

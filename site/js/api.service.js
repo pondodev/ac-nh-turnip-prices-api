@@ -1,22 +1,23 @@
-const HTTP = new XMLHttpRequest();
-const BASE = `${window.location.hostname}/api`
-
-function test() {
-    console.log(BASE)
-    $.get(`${BASE}/AllUsers`, (res, status) => {
-        console.log("res: ", res);
-        console.log("status: ", status);
-    });
-}
+const BASE = "/api"
 
 $(document).ready(() => {
-    $.ajax({
-        url: "/api/AllUsers",
-        success: () => {
-            console.log("done")
-        },
-        error: (e) => {
-            console.log("something went wrong: ", e)
-        }
-    });
+    let _userId = sessionStorage.getItem("userId");
+    if (_userId == null) {
+        // TODO: goto login page
+    } else {
+        $.ajax({
+            type: "GET",
+            url: `${BASE}/User`,
+            data: {
+                userId: _userId
+            },
+            success: (res) => {
+                $("#user-welcome").text(res.username);
+            },
+            error: (e) => {
+                $("#user-welcome").text("name not found");
+                console.log(`${e.status} error: ${e.statusText}`, e);
+            }
+        });
+    }
 });
