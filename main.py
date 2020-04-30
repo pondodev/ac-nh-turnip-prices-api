@@ -7,7 +7,7 @@ from repositories.login import Login
 from repositories.users import AllUsers, User
 from repositories.patterns import UserPatterns, SubmitPattern
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/site", static_folder="./site")
 api = Api(app)
 
 # define api paths
@@ -19,4 +19,4 @@ api.add_resource(SubmitPattern, "/api/SubmitPattern")
 
 if __name__ == "__main__":
     db.Init()
-    app.run(debug=True)
+    app.run(debug=True, port=80)

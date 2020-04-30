@@ -60,7 +60,7 @@ returns array of patterns owned by the user
 
 ```json
 {
-    "userId"  : 1,
+    "userId"    : 1,
     "startDate" : 1587945600,
     "prices"    : "100.121.113..........",
     "first"     : false,
