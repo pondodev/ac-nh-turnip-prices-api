@@ -10,10 +10,13 @@ from repositories.patterns import UserPatterns, SubmitPattern
 app = Flask(__name__, static_url_path="", static_folder="./site")
 api = Api(app)
 
-# rewrite path for index.html
+# paths for the static site
 @app.route("/")
-def root():
+def rootPage():
     return app.send_static_file("index.html")
+@app.route("/login")
+def loginPage():
+    return app.send_static_file("login.html")
 
 # define api paths
 api.add_resource(Login, "/api/Login")

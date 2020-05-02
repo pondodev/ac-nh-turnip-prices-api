@@ -72,15 +72,15 @@ class User(Resource):
 
         try:
             query = "INSERT INTO users (userId, username) VALUES (?, ?)"
-            params = [userId, username]
+            params = (userId, username)
             res = db.Execute(query, params, True)
             if res is None:
-                return Response(status=500)
+                return Response("first", status=500)
             else:
                 response = {
                     "userId": userId,
                     "username": username
                 }
                 return Response(json.dumps(response), status=200, mimetype="application/json")
-        except:
-            return Response(status=500)
+        except Exception as e:
+            return Response(e, status=500)

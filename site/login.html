@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animal Crossing - Turnip Prophet</title>
+  <meta name="description" content="Animal Crossing - Turnip Prophet">
+  <meta name="author" content="Mike Bryant">
+  <meta name="theme-color" content="#def2d9">
+
+  <!-- generics -->
+  <link rel="icon" href="img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="img/favicon-128.png" sizes="128x128">
+  <link rel="icon" href="img/favicon-192.png" sizes="192x192">
+
+  <!-- Android -->
+  <link rel="shortcut icon" href="img/favicon-196.png" sizes="196x196">
+
+  <!-- iOS -->
+  <link rel="apple-touch-icon" href="img/favicon-152.png" sizes="152x152">
+  <link rel="apple-touch-icon" href="img/favicon-167.png" sizes="167x167">
+  <link rel="apple-touch-icon" href="img/favicon-180.png" sizes="180x180">
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162470902-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-162470902-1');
+  </script>
+
+  <!-- bunch of js libs -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/19.4.2/i18next.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-xhr-backend/3.2.2/i18nextXHRBackend.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-browser-languagedetector/4.0.2/i18nextBrowserLanguageDetector.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"></script>
+
+  <!-- to communicate with the api -->
+  <script src="js/api.service.js"></script>
+
+</head>
+
+
+<body>
+
+  <div class="dialog-box">
+    <h2 class="dialog-box__name">pondo</h2>
+    
+    <p>
+      hey! thanks for stopping by, feel free to login or sign up below. this project is an extension on
+      <a href="https://turnipprophet.io/" target="_blank">the original turnip prophet app</a>. this is just something i've
+      whipped up in my spare time with the help of my mate selby. you can see the source code
+      <a href="https://github.com/pondodev/ac-nh-turnip-prices-api" target="_blank">here</a>. feel free to suggest
+      changes and make pull requests, cause this code is far from perfect! hope you enjoy makin some fat stacks
+      with turnips :)
+    </p>
+  </div>
+
+  <div class="dialog-box">
+    <h2 class="dialog-box__name">Login</h2>
+    
+    <input type="text" id="login-username" placeholder="Username" />
+    <button type="button" class="button" onclick="LoginUser()">Login</button>
+  </div>
+
+  <div class="dialog-box">
+    <h2 class="dialog-box__name">Sign Up</h2>
+    
+    <input type="text" id="signup-username" placeholder="Username" />
+    <button type="button" class="button" onclick="SignUpUser()">Sign Up</button>
+  </div>
+
+</body>
+</html>
